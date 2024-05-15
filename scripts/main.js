@@ -8,7 +8,7 @@
   const FRAME_RATE = 60;
   const PARTICLE_NUM = 2000;
   const RADIUS = Math.PI * 2;
-  const CANVASWIDTH = 500;
+  const CANVASWIDTH = window.innerWidth;
   const CANVASHEIGHT = 150;
   const CANVASID = "canvas";
 
@@ -144,6 +144,10 @@
         }
         text = texts[textIndex];
         console.log(textIndex);
+        window?.parent?.postMessage?.({
+          key: 'textIndex',
+          value: textIndex
+        }, '*');
       },
       false
     );
